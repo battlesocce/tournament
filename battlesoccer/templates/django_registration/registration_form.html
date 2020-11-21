@@ -1,0 +1,79 @@
+{% load crispy_forms_tags %}
+{%load static%}
+<style>
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+
+body {
+
+    font-family: "Quicksand", sans-serif;
+
+}
+.responsive{
+width:100%;
+height:auto;
+
+}
+.card__image {
+  flex-basis: 400px;ss
+  min-width: 0;
+  min-height: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top center;
+     object-position: top center;
+}
+@media only screen and (max-width:600px) {
+.fo{
+  font-size:40px;
+  text-align: center;
+  }
+}
+.card__image {
+  flex-basis: 400px;
+  min-width: 0;
+  min-height: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top center;
+     object-position: top center;
+}
+.main-raised1 {
+  display:block;
+    border-radius: 8px;
+-webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.3);
+-moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.3);
+box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.3);}
+
+.si{
+  width:40px;
+  margin-bottom:20px;
+}
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+<br>
+{% block auth %}
+<div class="container mt-3">
+<h2 class="fo"><a href="/" style="color: inherit; text-decoration: none;"><img src="{{MEDIA_URL}}load.svg"  class="si"/>Battle Soccer<br></a></h2>
+<br>
+<div class="row">
+  <div class="col-sm-12 col-xs-12 col-md-12 col-lg-6">
+      <div class="shadow p-3 mb-5 bg-white rounded">
+
+<img src="https://image.freepik.com/free-vector/football-player-injury-complaining-flat-illustration_26350-96.jpg" class="card__image" alt="cool" style="width:100%" >
+  </div>
+  <div class="col-sm-12 col-xs-12  col-md-12 col-lg-6">
+    <form method="POST">
+<div class="form-group">
+         {% csrf_token %}
+        {{ form|crispy }} 
+</div>
+        <br>
+<button type="submit" class="btn btn-dark">sign up</button>
+    </form>
+<p class="mt-2">Or <a href="{% url 'login' %}">Login</a></p> 
+</div>
+</div></div>
+</body>
+{% endblock %}

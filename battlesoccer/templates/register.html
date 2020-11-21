@@ -1,0 +1,70 @@
+{% load crispy_forms_tags %}
+{%load static%}
+<style>
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+.ody {
+
+    font-family: "Quicksand", sans-serif;
+
+}
+.responsive{
+width:100%;
+height:auto;
+
+}
+.fo{
+  font-size:60px;
+    text-align: center;
+}
+@media only screen and (max-width:600px) {
+.fo{
+  font-size:40px;
+  text-align: center;
+  }
+}
+.card__image {
+  flex-basis: 400px;
+  min-width: 0;
+  min-height: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top center;
+     object-position: top center;
+}
+.si{
+  width:40px;
+  margin-bottom:20px;
+}
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% block auth %}
+<body>
+<div class="container ody mt-3">
+<h2 class="fo"><a href="/" style="color: inherit; text-decoration: none;"><img src="{{MEDIA_URL}}load.svg"  class="si"/>Battle Soccer</a></h2>
+  {% if message %}
+<div class="alert alert-success text-center" role="alert">
+{{message}}</div>
+{% endif %}
+<div class="row">
+  <div class="col-sm-12 col-xs-12 col-md-12 col-lg-6"><br>
+      <div class="shadow p-3 mb-5 bg-white rounded"><h3 class="text-center">Create your team here!!</h3>
+<img src="https://image.freepik.com/free-vector/football-player-injury-complaining-flat-illustration_26350-96.jpg" class="card__image" alt="cool" style="width:100%" >
+  </div></div>
+  <div class="col-sm-12 col-xs-12  col-md-12 col-lg-6">
+<br>
+    <form method="POST">
+<div class="form-group">
+         
+        {{ form|crispy }} 
+        {% csrf_token %}
+</div>
+        <br>
+<button  type="submit" class="btn btn-dark btn-lg btn-block">Signup</button>
+    </form>
+Or have an account? <a href="{% url 'login' %}"><button class="btn btn-primary btn-lg btn-block">Login</button><br><br>
+</a></p> 
+</div>
+</div>
+</body>
+{% endblock %}

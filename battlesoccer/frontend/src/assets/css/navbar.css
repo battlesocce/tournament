@@ -1,0 +1,445 @@
+
+body {
+
+    font-family: "Quicksand", sans-serif;
+
+}
+.si
+{
+  width:25px;
+  margin-bottom: 8px;
+  margin-right: -6px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+    font-size: 62.5%;
+    font-size: 10px;
+}
+
+div.page {
+  min-height:0px;
+  }
+
+.nav {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    line-height: 65px;
+    text-align: center;
+    z-index:1;
+    margin-top:0px;
+    padding: 0;
+    background-color: rgba(255,255,255, 0.6);
+}
+
+.affix {
+    margin-top:0px;
+    padding: 0;
+    background-color: white;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.2);
+-moz-box-shadow:    0px 1px 2px 0px rgba(50, 50, 50, 0.2);
+box-shadow:         0px 1px 2px 0px rgba(50, 50, 50, 0.2);
+    
+}
+.contain{
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.nav div.logo {
+    float: left;
+    width: auto;
+    height: auto;
+    padding-left: 0.8rem;
+    margin-top: 3px;
+}
+
+
+.nav div.logo a {
+    text-decoration: none;
+    color: black;
+    font-size: 3rem;
+    margin-top: 3px;
+    font-weight: 700px;
+}
+
+.nav div.logo a:hover {
+      text-decoration: none;
+    color: black;
+}
+
+.nav div.main_list {
+    height: 65px;
+    float: right;
+    margin-top: 2px;
+}
+
+.nav div.main_list ul {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+
+}
+
+.nav div.main_list ul li {
+    width: auto;
+    height: 65px;
+    padding: 0;
+    padding-right: 1.3rem;
+    float: right;
+}
+
+.nav div.main_list ul li a {
+    text-decoration: none;
+    color: black;
+    line-height: 65px;
+    font-size: 1.3rem;
+}
+
+.nav div.main_list ul li a:hover {
+    color:Violet ;
+}
+
+
+/* Home section */
+
+
+
+.navTrigger {
+    display: none;
+
+}
+
+.nav {
+    padding-top: -200px;
+    padding-bottom: 20px;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+
+/* Media qurey section */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .contain {
+        margin: 0px;
+    }
+}
+
+@media screen and (max-width:1150px) {
+    .si
+    {
+      width:23px;  
+    }
+.nav div.logo {
+    float: left;
+    width: auto;
+    height: auto;
+    padding-left: -20px;
+}
+
+.nav div.main_list ul li {
+    width: auto;
+    height: 65px;
+    padding: 0;
+    padding-right: 0rem;
+    float: center;
+    font-weight:500;
+}
+
+
+.nav div.logo a {
+    text-decoration: none;
+    color: black;
+    font-size:1.9rem;}
+
+.nav div.logo a:hover {
+      text-decoration: none;
+    color:black;
+    font-size: 1.9rem;
+}
+    .navTrigger {
+        display: block;
+    }
+    .nav div.logo {
+        margin-left: 1px;
+    }
+    .nav div.main_list {
+        height: 0;
+        overflow: hidden;
+        width: 100%;
+        -webkit-animation: slide 2s forwards;
+        -webkit-animation-delay: 2s;
+        animation: slide 2s forwards;
+        animation-delay: 2s;
+    }
+    @-webkit-keyframes slide {
+        100% { left: 0; }
+    }
+    
+    @keyframes slide {
+        100% { left: 0; }
+    }
+    .nav div.show_list {
+        height: auto;
+        display: none;
+    }
+    .nav div.main_list ul {
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        text-align: center;
+        background-color: rgba(255,255,255, 0.9);
+        background-position: center top;
+        z-index: 150;
+        -webkit-animation: slide 2s forwards;
+        -webkit-animation-delay: 2s;
+        animation: slide 2s forwards;
+        animation-delay: 2s;
+    }
+    @-webkit-keyframes slide {
+        100% { left: 0; }
+    }
+    
+    @keyframes slide {
+        100% { left: 0; }
+    }
+    .nav div.main_list ul li {
+        width: 100%;
+    }
+    .nav div.main_list ul li a {
+        width: 100%;
+        font-size: 1.5rem;
+    }
+    .nav div.media_button {
+        display: block;
+    }
+}
+
+
+/* Animation */
+/* Inspiration taken from Dicson https://codemyui.com/simple-hamburger-menu-x-mark-animation/ */
+
+.navTrigger {
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    margin: auto;
+    position: absolute;
+    right: 30px;
+    top: 0;
+    bottom: 0;
+}
+
+.navTrigger i {
+    background-color: black;
+    border-radius: 2px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+}
+
+.navTrigger i:nth-child(1) {
+    -webkit-animation: outT 0.8s backwards;
+    animation: outT 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(2) {
+    margin: 5px 0;
+    -webkit-animation: outM 0.8s backwards;
+    animation: outM 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(3) {
+    -webkit-animation: outBtm 0.8s backwards;
+    animation: outBtm 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger.active i:nth-child(1) {
+    -webkit-animation: inT 0.8s forwards;
+    animation: inT 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(2) {
+    -webkit-animation: inM 0.8s forwards;
+    animation: inM 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(3) {
+    -webkit-animation: inBtm 0.8s forwards;
+    animation: inBtm 0.8s forwards;
+}
+
+@-webkit-keyframes inM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes inM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes outM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes outM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes inT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@keyframes inT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@keyframes outT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes inBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@keyframes inBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@keyframes outBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+
+
+
+.myH2 {
+	text-align:center;
+	font-size: 4rem;
+}
+
+.myP {
+	text-align: justify;
+	padding-left:15%;
+	padding-right:15%;
+	font-size: 20px;
+}
+
+@media all and (max-width:700px){
+	.myP {
+		padding:2%;
+	}
+}

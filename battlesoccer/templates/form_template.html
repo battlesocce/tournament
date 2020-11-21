@@ -1,0 +1,22 @@
+<fieldset><center>
+<div class="container">
+{% for field in form %}
+     <label class="inp">
+  {{ field }}
+  <span class="label">{{field.label_tag}}</span>
+  <span class="focus-bg"></span>
+   </label>
+
+{% endfor %}
+    </div></center>
+    </fieldset>
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+               <li><strong>{{ error|escape }}</strong></li>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+            <strong>{{ error|escape }}</strong>
+    {% endfor %}
+{% endif %}

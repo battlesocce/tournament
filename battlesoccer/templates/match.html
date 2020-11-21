@@ -1,0 +1,94 @@
+<br><br><br><br>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<form class="form-control" role="form" action="" method="post" enctype="multipart/form-data">
+    {{ form1.as_p }}
+    {%csrf_token%}
+    {% include 'form_template.html' %}
+    <button type="submit">sumbit</button>
+
+</form><br><br><br><br><br><br><br><br>
+
+
+ <table class="table">
+      <tr>
+          <th><h4><center>team</center></h4></th>
+          <th><h4><center>Goals</center></h4></th>
+          <th><h4><center>Played</center></h4></th>
+          <th><h4><center>Won</center></h4></th>
+          <th><h4><center>Lost</center></h4></th>
+      </tr>
+                 {% for ttrs in ttr %}
+                 {%if teampresent.matchs_played != 0 %}
+      <tbody>         
+      <tr>
+          <td><h3><center>{{ttrs.teamname}}</center></h3></td>
+          <td><h3><center>{{ttrs.teamgoals}}</center></h3></td>
+          <td><h3><center>{{ttrs.matchs_played}}</center></h3></td>
+          <td><h3><center>{{ttrs.match_won}}</center></h3></td>
+          <td><h3><center>{{ttrs.match_lost}}</center></h3></td>
+      </tr>
+   </tbody>{% endif %}
+      {% endfor %}
+      
+ </table>
+
+<br><br><br>
+
+
+ <table class="table">
+      <tr>
+          <th><h4><center>tour</center></h4></th>
+          <th><h4><center>team</center></h4></th>
+          <th><h4><center>Goals</center></h4></th>
+          <th><h4><center>Played</center></h4></th>
+          <th><h4><center>Won</center></h4></th>
+          <th><h4><center>Lost</center></h4></th>
+      </tr>
+                 {% for teampresent in teamrank %}
+                 {%if teampresent.matchs_played != 0 %}
+      <tbody>         
+      <tr>
+          <td><h3><center>{{teampresent.tournament_name}}</center></h3></td>
+          <td><h3><center>{{teampresent.teamname}}</center></h3></td>
+          <td><h3><center>{{teampresent.teamgoals}}</center></h3></td>
+          <td><h3><center>{{teampresent.matchs_played}}</center></h3></td>
+          <td><h3><center>{{teampresent.match_won}}</center></h3></td>
+          <td><h3><center>{{teampresent.match_lost}}</center></h3></td>
+      </tr>
+   </tbody>{% endif %}
+      {% endfor %}
+      
+ </table>
+
+<br><br><br>
+ <div style="overflow-x:auto;">
+  <table class="table">
+      <tr>
+          <th><h4><center>tour</center></h4></th>
+          <th><h4><center>team_1</center></h4></th>
+          <th><h4><center>team_2</center></h4></th>
+          <th><h4><center>Goal</center></h4></th>
+          <th><h4><center>Goal</center></h4></th>
+          <th><h4><center>Date</center></h4></th>
+          <th><h4><center>won</center></h4></th>
+
+      </tr>
+ {% for teampresent in match %}
+    <tbody>
+      <tr>
+
+          <td><h5><center>{{teampresent.tournament_name}}</center></h5></td>
+          <td><h5><center>{{teampresent.team_a.teamname}}</center></h5></td>
+          <td><h5><center>{{teampresent.team_b.teamname}}</center></h5></td>
+          <td><h5><center>{{teampresent.team_a_goals}}</center></h5></td>
+          <td><h5><center>{{teampresent.team_b_goals}}</center></h5></td>
+          <td><h5><center>{{teampresent.date|date:"m d, y" }}</center></h5></td>
+          <td><h5><center>{{teampresent.winner}}</center></h5></td>
+   <form action="{% url 'deletematch' teampresent.id %}" method="get">
+   {%csrf_token%}
+       <td><center><button type="submit"style="font-size:25px;"class="fa fa-trash"></button></center></td>
+    </form>
+      </tr>
+   </tbody>
+          {% endfor %}
+  </table>
