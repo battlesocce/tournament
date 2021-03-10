@@ -195,4 +195,6 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'online',
         }
     }
-}
+
+    import django_heroku
+    django_heroku.settings(locals())
