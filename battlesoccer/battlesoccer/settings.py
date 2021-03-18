@@ -152,10 +152,8 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = "media"
 SITE_ID = 1
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "assets"),
-    os.path.join(BASE_DIR, "frontend/dist"),
-]
+PROJECT_DIR=os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT=os.path.join(PROJECT_DIR, 'static')
 
 AUTH_USER_MODEL = "users.CustomUser"
 
